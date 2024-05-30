@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+
+
+    <title>Invoices</title>
+</head>
+
+<body>
+    <header class="header">
+        <span class="title">Invoices</span>
+        <div class="buttons">
+            <button class="button export">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M14.419 10.4419C14.6631 10.686 15.0588 10.686 15.3029 10.4419C15.547 10.1978 15.547 9.8021 15.3029 9.55802L10.4447 4.69982C10.4351 4.69011 10.4252 4.68071 10.415 4.67164C10.3046 4.57348 10.1592 4.51385 9.99986 4.51385C9.91849 4.51385 9.84074 4.52941 9.76944 4.5577C9.69241 4.5882 9.62021 4.6346 9.5579 4.69691L4.69679 9.55803C4.45271 9.8021 4.45271 10.1978 4.69679 10.4419C4.94087 10.686 5.3366 10.686 5.58067 10.4419L9.37486 6.64772L9.37486 14.8611C9.37486 15.2063 9.65469 15.4861 9.99986 15.4861C10.345 15.4861 10.6249 15.2063 10.6249 14.8611L10.6249 6.64776L14.419 10.4419Z"
+                            fill="#1D2433" />
+                    </svg>
+                    <span>Export</span>
+                </button>
+            <button class="button new">
+                    + New
+                </button>
+            <button class="button filter">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M2.4886 3.48695C2.59101 3.26622 2.81222 3.125 3.05555 3.125H16.9444C17.1878 3.125 17.409 3.26622 17.5114 3.48695C17.6138 3.70768 17.5788 3.96778 17.4217 4.15358L12.0139 10.5483V16.25C12.0139 16.4666 11.9017 16.6678 11.7175 16.7817C11.5332 16.8955 11.3031 16.9059 11.1094 16.809L8.3316 15.4201C8.11986 15.3143 7.98611 15.0978 7.98611 14.8611V10.5483L2.57832 4.15358C2.4212 3.96778 2.38619 3.70768 2.4886 3.48695ZM4.40262 4.375L9.08834 9.91587C9.18375 10.0287 9.23611 10.1717 9.23611 10.3194V14.4748L10.7639 15.2387V10.3194C10.7639 10.1717 10.8162 10.0287 10.9117 9.91587L15.5974 4.375H4.40262Z"
+                            fill="#1D2433" fill-opacity="0.75" />
+                    </svg>
+                </button>
+            <button class="button options">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="5" fill="#F1F3F9" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M19.7221 14.1667C18.9551 14.1667 18.3333 14.7885 18.3333 15.5555C18.3333 16.3226 18.9551 16.9444 19.7221 16.9444C20.4892 16.9444 21.111 16.3226 21.111 15.5555C21.111 14.7885 20.4892 14.1667 19.7221 14.1667ZM19.7221 18.6112C18.9551 18.6112 18.3333 19.233 18.3333 20.0001C18.3333 20.7671 18.9551 21.389 19.7221 21.389C20.4892 21.389 21.111 20.7671 21.111 20.0001C21.111 19.233 20.4892 18.6112 19.7221 18.6112ZM18.3333 24.8611C18.3333 24.094 18.9551 23.4722 19.7221 23.4722C20.4892 23.4722 21.111 24.094 21.111 24.8611C21.111 25.6282 20.4892 26.25 19.7221 26.25C18.9551 26.25 18.3333 25.6282 18.3333 24.8611Z"
+                            fill="#1D2433" fill-opacity="0.75" />
+                    </svg>
+                </button>
+        </div>
+    </header>
+        </table>
+
+        <div class="pagination-container" id="toggleContainer" >
+            <div class="results-per-page">
+                <label for="results-per-page">Results per page</label>
+                <select id="results-per-page">
+                            <option value="20" >20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <div class="search-box">
+                        </select>
+            </div>
+            <div class="page-navigation">
+                <div class="pagination-button prev">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="5" fill="#F8F9FC" />
+                        <g clip-path="url(#clip0_67_6803)">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M17.6868 12.8131C17.8821 13.0084 17.8821 13.3249 17.6868 13.5202L15.3737 15.8333L17.6868 18.1464C17.8821 18.3417 17.8821 18.6583 17.6868 18.8535C17.4916 19.0488 17.175 19.0488 16.9797 18.8535L14.3131 16.1869C14.1178 15.9916 14.1178 15.675 14.3131 15.4798L16.9797 12.8131C17.175 12.6178 17.4916 12.6178 17.6868 12.8131Z"
+                                fill="#1D2433" fill-opacity="0.5" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_67_6803">
+                                <rect width="16" height="16" fill="white" transform="translate(8 8)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <span>1</span>
+                <div class="pagination-button next">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="5" fill="#F1F3F9" />
+                        <g clip-path="url(#clip0_67_6808)">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M14.3131 18.8535C14.1178 18.6583 14.1178 18.3417 14.3131 18.1464L16.6262 15.8333L14.3131 13.5202C14.1178 13.3249 14.1178 13.0084 14.3131 12.8131C14.5083 12.6178 14.8249 12.6178 15.0202 12.8131L17.6868 15.4798C17.8821 15.675 17.8821 15.9916 17.6868 16.1869L15.0202 18.8535C14.8249 19.0488 14.5083 19.0488 14.3131 18.8535Z"
+                                fill="#333333" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_67_6808">
+                                <rect width="16" height="16" fill="white" transform="translate(8 8)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                </div>
+            </div>
+            </div>
+        </div> 
+            <div class="tablesearch-container">
+            <input type="text" class="tablesearch-bar" id="tablesearch-bar" placeholder="Search">
+            <button class="tablesearch-button" id="search-button">Search</button>
+         </div>
+        </div> 
+        <div class="tablefilter-container">
+            <select class="tablefilter-dropdown" id="tablefilter-dropdown">
+                <option value="">Filter</option>
+                <option value="type-receipt">Type: Receipt</option>
+                <option value="type-invoice-waybill">Type: Invoice-Waybill</option>
+                <option value="type-prepayment-inv">Type: Prepayment inv.</option>
+                <option value="state-in-progress">State: In progress</option>
+                <option value="state-complete">State: Complete</option>
+                <option value="state-pending">State: Pending</option>
+            </select>
+        </div>
+        <div id="results">
+            <div class="container">
+                <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="select-all"></th>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Location</th>
+                            <th>State</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Tabeli sisu loodud JavaScripti abil kuvatakse siin -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Customers</h2>
+                    <button class="add-button">+ Add</button>
+                </div>
+                <div class="alphabet-filter">
+                    <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span><span>M</span><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span>
+                </div>
+                <div class="search-container">
+                    <input type="text" class="search-bar" id="search-bar" placeholder="Search">
+                    <button class="search-button" id="search-button">Search</button>
+                </div>
+                <div class="customer-list" id="customer-list">
+                    <input type="text" class="search-bar" placeholder="Search">
+                    <button class="search-button">Search</button>
+                </div>
+                <div class="customer-list" id="customer-list">
+                </div>
+
+                <div class="add-customers-box">
+                    <div class="add-customers-header">
+                        <h3>Add customers</h3>
+                        <button class="close-button">&times;</button>
+                    </div>
+                    <div class="content">
+                        <p>You can add customers by pressing the Add + button in the corner or by importing your clients from a CSV file.</p>
+                        <button class="import-button">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4076 4.47709C9.55243 4.09938 8.6227 3.92059 7.68842 3.95419C6.75413 3.98779 5.83965 4.2329 5.0138 4.67106C4.18796 5.10923 3.47227 5.72904 2.92063 6.48382C2.36899 7.23861 1.99576 8.1087 1.82904 9.0286C1.66233 9.94851 1.70648 10.8942 1.95816 11.7946C2.20984 12.695 2.66249 13.5265 3.28205 14.2266C3.5108 14.4851 3.90579 14.5093 4.16429 14.2805C4.42278 14.0518 4.4469 13.6568 4.21815 13.3983C3.72389 12.8397 3.36279 12.1764 3.16201 11.4581C2.96123 10.7398 2.92601 9.98536 3.05901 9.25151C3.19201 8.51766 3.48975 7.82354 3.92982 7.2214C4.3699 6.61927 4.94084 6.12482 5.59966 5.77527C6.25848 5.42572 6.98801 5.23018 7.73334 5.20338C8.47867 5.17658 9.22036 5.31921 9.90259 5.62053C10.5848 5.92185 11.1898 6.37402 11.672 6.94298C12.1542 7.51195 12.501 8.18289 12.6864 8.90529C12.7573 9.18169 13.0064 9.37495 13.2918 9.37495H14.1673C14.7725 9.37448 15.3621 9.56687 15.8506 9.92422C16.339 10.2816 16.7009 10.7853 16.8837 11.3622C17.0665 11.9392 17.0607 12.5594 16.8671 13.1328C16.6736 13.7062 16.3023 14.2031 15.8073 14.5512C15.5249 14.7498 15.457 15.1396 15.6555 15.422C15.8541 15.7043 16.2439 15.7723 16.5263 15.5737C17.2387 15.0727 17.7729 14.3578 18.0515 13.5326C18.33 12.7074 18.3384 11.8149 18.0753 10.9847C17.8123 10.1544 17.2915 9.42958 16.5886 8.91536C15.8858 8.40123 15.037 8.12438 14.1663 8.12495L13.7566 8.12495C13.7162 8.00743 13.6724 7.89125 13.6252 7.77657C13.3803 7.18216 13.0435 6.62793 12.6256 6.13481C12.0212 5.4216 11.2628 4.85481 10.4076 4.47709ZM10.0002 17.7083C9.65499 17.7083 9.37517 17.4285 9.37517 17.0833L9.37517 12.3423L7.66426 14.0532C7.42019 14.2973 7.02446 14.2973 6.78038 14.0532C6.5363 13.8091 6.5363 13.4134 6.78038 13.1693L9.55278 10.3969C9.66629 10.2806 9.82479 10.2083 10.0002 10.2083C10.1776 10.2083 10.3377 10.2823 10.4515 10.401L13.2198 13.1693C13.4639 13.4134 13.4639 13.8091 13.2198 14.0532C12.9757 14.2973 12.58 14.2973 12.3359 14.0532L10.6252 12.3424L10.6252 17.0833C10.6252 17.4285 10.3453 17.7083 10.0002 17.7083Z" fill="#1D2433" fill-opacity="0.75"/>
+                            </svg>
+                            Import customers
+                        </button>
+                    </div>
+            </div>
+        </div>
+        
+        
+
+<script src="invoices.js"></script>
+</body>
+
+</html>
