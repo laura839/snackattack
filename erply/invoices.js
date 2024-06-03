@@ -213,5 +213,99 @@ document.addEventListener('DOMContentLoaded', function () {
             invoicesBody.appendChild(row);
         });
     }
+
+    document.getElementById('search-button').addEventListener('click', function() {
+    const searchValue = document.getElementById('tablesearch-bar').value.toLowerCase();
+    const filteredInvoices = invoices.filter(invoice => {
+        return Object.values(invoice).some(value =>
+            value.toString().toLowerCase().includes(searchValue)
+        );
+    });
+    displayTable(filteredInvoices);
+});
+
+function displayTable(invoices) {
+    const tableContainer = document.getElementById('table-container');
+    tableContainer.innerHTML = '';
+
+    if (invoices.length === 0) {
+        tableContainer.innerHTML = '<p>No results found</p>';
+        return;
+    }
+
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    const tbody = document.createElement('tbody');
+
+    const headerRow = document.createElement('tr');
+    ['Type', 'Date', 'Customer', 'Location', 'State', 'Total'].forEach(header => {
+        const th = document.createElement('th');
+        th.textContent = header;
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+
+    invoices.forEach(invoice => {
+        const row = document.createElement('tr');
+        Object.values(invoice).forEach(text => {
+            const td = document.createElement('td');
+            td.textContent = text;
+            row.appendChild(td);
+        });
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    tableContainer.appendChild(table);
+}
+
     
+document.getElementById('search-button').addEventListener('click', function() {
+    const searchValue = document.getElementById('tablesearch-bar').value.toLowerCase();
+    const filteredInvoices = invoices.filter(invoice => {
+        return Object.values(invoice).some(value =>
+            value.toString().toLowerCase().includes(searchValue)
+        );
+    });
+    populateTable(filteredInvoices); // Call populateTable with filtered results
+});
+function populateTable(filteredInvoices) {
+    const tableBody = document.getElementById('table-body');
+    tableBody.innerHTML = ''; // Clear the table body
+
+    if (filteredInvoices.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="7">No results found</td></tr>'; // Display message if no results
+        return;
+    }
+
+    filteredInvoices.forEach((invoice, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><input type="checkbox" id="invoice-${index}"></td>
+            <td>${invoice.type}</td>
+            <td>${invoice.date}</td>
+            <td>${invoice.customer}</td>
+            <td>${invoice.location}</td>
+            <td><span class="tag ${invoice.state.replace(' ', '-').toLowerCase()}"><span class="dot"></span>${invoice.state}</span></td>
+            <td>${invoice.total}</td>
+        `;
+        tableBody.appendChild(row);
+
+        const checkbox = document.getElementById(`invoice-${index}`);
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                row.classList.add('active');
+            } else {
+                row.classList.remove('active');
+            }
+        });
+    });
+}
+
+// Initially populate the table with all invoices
+populateTable(invoices);
+
+
+
 });
